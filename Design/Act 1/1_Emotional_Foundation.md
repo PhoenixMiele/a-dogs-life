@@ -6,9 +6,13 @@
 
 The Forest introduces the player to the world through the eyes of the dog.
 
-It is a place of natural beauty, solitude and quiet melancholy. It can feel peaceful and comforting, but equally lonely and unsettling. It is the ideal setting for reflection, uncertainty and emotional discovery.
+It is a place of natural beauty, solitude and quiet melancholy. It can feel peaceful and comforting, but equally lonely and unsettling. It is the ideal setting for reflection, uncertainty quiet understanding.
 
 As the natural home of animals, it also introduces the player to the game's animal society before the human world begins to take focus.
+
+It also establishes the philosophical foundation of the game: that love and hope can exist alongside uncertainty, fear and complexity.
+
+The Forest is not simply the beginning of the dog's physical journey, but of his growing understanding of the world.
 
 ---
 
@@ -30,7 +34,9 @@ His optimism remains intact.
 
 The dog has failed to find his owner or recover their scent.
 
-However, he discovers the scent of another human.
+However, his understanding of the world has quietly broadened, and his hope remains unchanged.
+
+He's been pointed in the direction of humans by the badger - **follow the creek**, she says.
 
 To the dog, this represents hope.
 
@@ -44,11 +50,11 @@ Rather than giving up, he commits to following this new lead.
 
 ### Emotional Arc
 
-**Confusion → Worry → Hope**
+**Uncertainty -hope- Understanding**
 
 The Forest does not challenge the dog's belief in his family.
 
-Instead, it establishes his unwavering optimism and willingness to keep moving forward.
+Hope remains constant throughout the act, carrying the dog from uncertainty towards a broader understanding of the world.
 
 ---
 
@@ -59,4 +65,4 @@ The Forest serves as the beginning of both journeys:
 * The **dog's journey** to find his way home.
 * The **player's journey** to understand what really happened.
 
-It establishes the world, the tone, and the dog's character, while providing the first spark of hope that carries the story into the next act.
+It establishes the world, the tone, and the dog's character, in addition to the first iontroduction to the philosophical foundation of the story.

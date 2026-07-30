@@ -4,29 +4,33 @@
 
 ### Purpose
 
-The Forest explores the dog's internal journey.
+The Forest introduces and explores the dog's internal journey.
 
 Rather than changing who he is, it reveals the qualities that define him when faced with uncertainty.
 
-It establishes the emotional foundations of the protagonist, showing how his loyalty, hope and trust endure when challenged for the first time.
+It establishes the emotional foundations of the protagonist, showing how his love, hope and trust endure when challenged for the first time.
 
 ---
 
 ### Internal Challenge
 
-For the first time in his life, the dog experiences doubt.
+For the first time in his life, the dog experiences uncertainty.
 
-He questions whether he will see his family again.
+He wakes alone, separated from the people he loves.
 
-The feeling is unfamiliar, and it frightens him.
+The feeling is unfamiliar, and with it comes the first hint of doubt.
 
----
+Yet hope remains.
 
-### Courage
+The dog does not overcome his uncertainty.
 
-The dog does not overcome doubt by eliminating it.
+He carries it with him.
 
-He overcomes it by continuing despite it.
+Love gives his journey meaning.
+
+Hope allows him to continue.
+
+Together, they allow him to move forward despite emotions he has never experienced before.
 
 ---
 
@@ -34,8 +38,14 @@ He overcomes it by continuing despite it.
 
 The Forest does not change the dog.
 
-Instead, it reveals who he already is.
+It reveals him.
 
-His defining qualities—hope, trust and loyalty—remain intact despite uncertainty.
+His defining qualities — love, hope and trust — remain constant as his understanding of the world begins to deepen.
 
-His optimism survives its first test.
+His trust is not destroyed, but refined.
+
+He leaves the Forest not as a different dog, but as one with a broader perspective.
+
+His nature remains unchanged.
+
+Only his understanding has grown.

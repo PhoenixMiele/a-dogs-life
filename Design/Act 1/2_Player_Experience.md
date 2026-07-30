@@ -16,14 +16,9 @@ It is not primarily a chapter of lore or revelation. Instead, it establishes the
 
 The player learns how the dog approaches life:
 
-* He is optimistic.
-* He is loyal.
+* He is loving and hopeful.
 * He is trusting.
 * He believes in the goodness of others.
-
-However, the player also begins to understand his limitations.
-
-The dog is naive.
 
 He interprets the world through the assumption that his family loves him and that returning home is inevitable.
 
@@ -35,7 +30,7 @@ The Forest introduces the idea that hope does not mean the absence of doubt.
 
 The dog encounters uncertainty and conflicting perspectives, but his optimism remains.
 
-His hope is challenged, but ultimately endures.
+His hope is challenged, but exists alongside uncertainty.
 
 ---
 
@@ -60,7 +55,7 @@ The dog wakes alone:
 * Darkness.
 * Isolation.
 
-The environment reflects his initial emotional state.
+The environment reinforces his initial emotional experience.
 
 As the dog searches and begins interacting with the world, the Forest gradually changes.
 
@@ -70,9 +65,11 @@ The player discovers:
 * Warmth within unexpected encounters.
 * A world beyond what the dog previously knew.
 
-The environment becomes brighter and more welcoming as the dog's hope develops.
+The dog's perception of the Forest changes as he begins to engage with the world beyond his initial uncertainty. 
 
-The act concludes with renewed optimism.
+It begins to mirror his internal journey: his growing understanding that love and hope can exist alongside other emotions, such as fear and anxiety.
+
+The player feels sadness at the dog's initial isolation, then gradually develops empathy and emotional investment in his journey.
 
 ---
 
@@ -103,7 +100,7 @@ It does not reveal:
 
 Those themes are reserved for later acts.
 
-The Forest is a chapter of discovery and hope.
+The Forest is a chapter of discovery and hope, establishing the dog's perspective on the world and the creatures within it.
 
 ---
 
@@ -124,3 +121,5 @@ The dog's trust and kindness can affect those around him.
 **Isolation → Discovery → Connection → Hope**
 
 The Forest establishes the dog's worldview before the story begins to challenge it.
+
+A recurring emotional pattern begins in the Forest: uncertainty creates anxiety, but love and hope allow the dog to continue.
