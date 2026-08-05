@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://klpe6hjghogx"]
+
+[ext_resource type="Script" uid="uid://ikrh80b7djec" path="res://scripts/dog/dog.gd" id="1_wjrla"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+
+[node name="Dog" type="CharacterBody2D" unique_id=1267395600]
+script = ExtResource("1_wjrla")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=553636557]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364982309]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1077405696]
