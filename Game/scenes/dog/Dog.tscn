@@ -13,3 +13,6 @@ script = ExtResource("1_wjrla")
 shape = SubResource("CapsuleShape2D_g4v7s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1077405696]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1662267900]
+polygon = PackedVector2Array(-15, -18, 15, -18, 15, 18, -14, 18)
