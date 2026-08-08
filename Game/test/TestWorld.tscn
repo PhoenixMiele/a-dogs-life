@@ -10,13 +10,14 @@ size = Vector2(20, 400)
 [node name="Dog" parent="." unique_id=1267395600 instance=ExtResource("1_1vmnm")]
 position = Vector2(200, 200)
 
+[node name="Camera2D2" type="Camera2D" parent="Dog" unique_id=1796044380]
+position_smoothing_enabled = true
+
 [node name="TestFloor" type="Polygon2D" parent="." unique_id=2070634131]
 polygon = PackedVector2Array(101, 225, 374, 225, 372, 254, 103, 254)
 
 [node name="Tree" type="Polygon2D" parent="." unique_id=1416286669]
 polygon = PackedVector2Array(292, 214, 291, 135, 266, 135, 289, 78, 317, 134, 291, 132)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1796044380]
 
 [node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=1357940518]
 position = Vector2(-200, 200)
