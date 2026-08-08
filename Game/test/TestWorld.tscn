@@ -2,7 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://klpe6hjghogx" path="res://scenes/dog/Dog.tscn" id="1_1vmnm"]
 
-[node name="TestWorld" type="Node2D" unique_id=1321018003]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(20, 400)
+
+[node name="MovementTesting" type="Node2D" unique_id=1321018003]
 
 [node name="Dog" parent="." unique_id=1267395600 instance=ExtResource("1_1vmnm")]
 position = Vector2(200, 200)
@@ -12,3 +15,31 @@ polygon = PackedVector2Array(101, 225, 374, 225, 372, 254, 103, 254)
 
 [node name="Tree" type="Polygon2D" parent="." unique_id=1416286669]
 polygon = PackedVector2Array(292, 214, 291, 135, 266, 135, 289, 78, 317, 134, 291, 132)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1796044380]
+
+[node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=1357940518]
+position = Vector2(-200, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=372949642]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ColorRect" type="ColorRect" parent="LeftBoundary" unique_id=1842581583]
+offset_left = -10.0
+offset_top = -200.0
+offset_right = 10.0
+offset_bottom = 200.0
+color = Color(1, 0.3254902, 0.078431375, 1)
+
+[node name="RightBoundary" type="StaticBody2D" parent="." unique_id=715294292]
+position = Vector2(600, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary" unique_id=1788120786]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ColorRect" type="ColorRect" parent="RightBoundary" unique_id=406689890]
+offset_left = -10.0
+offset_top = -200.0
+offset_right = 10.0
+offset_bottom = 200.0
+color = Color(1, 0.3254902, 0.078431375, 1)
