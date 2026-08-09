@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dk3ccyt61vj0i"]
+
+[ext_resource type="PackedScene" uid="uid://klpe6hjghogx" path="res://scenes/dog/Dog.tscn" id="1_t3a0n"]
+[ext_resource type="Texture2D" uid="uid://cjl7nke2chglj" path="res://assets/DistantTrees.png" id="2_j3bir"]
+[ext_resource type="Texture2D" uid="uid://cmy67f83lisd6" path="res://assets/MidgroundTrees.png" id="3_jpvga"]
+[ext_resource type="Texture2D" uid="uid://cnwxrwqw0cfxo" path="res://assets/NearTrees.png" id="4_ci0bu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1200, 400)
+
+[node name="Creek" type="Node2D" unique_id=1553795018]
+
+[node name="Environment" type="Node2D" parent="." unique_id=1852992566]
+
+[node name="GroundVisual" type="ColorRect" parent="Environment" unique_id=1566617859]
+offset_left = -600.0
+offset_right = 600.0
+offset_bottom = 400.0
+color = Color(0.45273465, 0.2605764, 0.09775854, 1)
+
+[node name="CreekWater" type="ColorRect" parent="Environment" unique_id=245946805]
+offset_left = -600.0
+offset_top = 60.0
+offset_right = 600.0
+offset_bottom = 180.0
+color = Color(0.08627451, 0.4392157, 0.8627451, 1)
+
+[node name="CreekBank" type="ColorRect" parent="Environment" unique_id=2065214312]
+offset_left = -600.0
+offset_right = 600.0
+offset_bottom = 60.0
+color = Color(0.3378894, 0.18833014, 0.06294466, 1)
+
+[node name="DogSpawn" type="Marker2D" parent="." unique_id=2008666271]
+position = Vector2(-300, 0)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=2033547539]
+position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1416979997]
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Dog" parent="." unique_id=1267395600 instance=ExtResource("1_t3a0n")]
+position = Vector2(-300, 0)
+
+[node name="ForestBackground" type="Node2D" parent="." unique_id=1759235740]
+
+[node name="DistantForest" type="Parallax2D" parent="ForestBackground" unique_id=153856907]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="DistantTrees" type="Sprite2D" parent="ForestBackground/DistantForest" unique_id=108991613]
+z_index = -10
+position = Vector2(400, 60)
+texture = ExtResource("2_j3bir")
+
+[node name="MidgroundForest" type="Parallax2D" parent="ForestBackground" unique_id=516740816]
+scroll_scale = Vector2(0.3, 0.3)
+
+[node name="MidgroundTrees" type="Sprite2D" parent="ForestBackground/MidgroundForest" unique_id=695803919]
+z_index = -5
+position = Vector2(400, -125)
+texture = ExtResource("3_jpvga")
+
+[node name="NearForest" type="Parallax2D" parent="ForestBackground" unique_id=790180622]
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="NearTrees" type="Sprite2D" parent="ForestBackground/NearForest" unique_id=1539325595]
+z_index = -2
+position = Vector2(400, -300)
+texture = ExtResource("4_ci0bu")
