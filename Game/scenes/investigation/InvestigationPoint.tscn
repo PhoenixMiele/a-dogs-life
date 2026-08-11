@@ -15,12 +15,13 @@ shape = SubResource("RectangleShape2D_g4v7s")
 visible = false
 offset_right = 119.0
 offset_bottom = 23.0
-text = "E — Investigate"
+text = "[E] Investigate"
 
-[node name="InvestigationText" type="Label" parent="." unique_id=1232286740]
+[node name="InvestigationText" type="RichTextLabel" parent="." unique_id=304544981]
 visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 300.0
+offset_bottom = 60.0
+bbcode_enabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
