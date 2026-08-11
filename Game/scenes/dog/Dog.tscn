@@ -4,7 +4,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 
-[node name="Dog" type="CharacterBody2D" unique_id=1267395600]
+[node name="Dog" type="CharacterBody2D" unique_id=1267395600 groups=["dog"]]
 script = ExtResource("1_wjrla")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=553636557]

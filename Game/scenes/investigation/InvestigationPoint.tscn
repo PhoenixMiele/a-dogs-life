@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dqh5w4oitufu"]
+
+[ext_resource type="Script" uid="uid://cf1mvwwuro6l" path="res://scripts/interaction/investigation_point.gd" id="1_skeod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(120, 80)
+
+[node name="InvestigationPoint" type="Area2D" unique_id=503970521 groups=["investigation_point"]]
+script = ExtResource("1_skeod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1546380566]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="InteractionPrompt" type="Label" parent="." unique_id=1996440154]
+visible = false
+offset_right = 119.0
+offset_bottom = 23.0
+text = "E — Investigate"
+
+[node name="InvestigationText" type="Label" parent="." unique_id=1232286740]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

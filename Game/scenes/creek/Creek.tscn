@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ca2arhqp13k5r" path="res://assets/DistantTrees_placeholder.png" id="2_ci0bu"]
 [ext_resource type="Texture2D" uid="uid://b17n03px3l6j0" path="res://assets/MidgroundTrees_placeholder.png" id="3_ci0bu"]
 [ext_resource type="Texture2D" uid="uid://ce887xia3juke" path="res://assets/NearTrees_placeholder.png" id="4_feo2y"]
+[ext_resource type="PackedScene" uid="uid://dqh5w4oitufu" path="res://scenes/investigation/InvestigationPoint.tscn" id="5_feo2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1200, 400)
@@ -371,3 +372,10 @@ scroll_scale = Vector2(0.6, 0.6)
 z_index = -2
 position = Vector2(400, -300)
 texture = ExtResource("4_feo2y")
+
+[node name="InvestigationPoint" parent="." unique_id=503970521 instance=ExtResource("5_feo2y")]
+investigation_text = "This water smells unfamiliar."
+
+[node name="InvestigationPoint2" parent="." unique_id=59980597 instance=ExtResource("5_feo2y")]
+position = Vector2(503, 4)
+investigation_text = "Something has been here before me."
