@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dk3ccyt61vj0i"]
 
+[ext_resource type="Script" uid="uid://b0vl041lu4imo" path="res://scripts/creek/creek.gd" id="1_ftecx"]
 [ext_resource type="PackedScene" uid="uid://klpe6hjghogx" path="res://scenes/dog/Dog.tscn" id="1_t3a0n"]
 [ext_resource type="Texture2D" uid="uid://ca2arhqp13k5r" path="res://assets/DistantTrees_placeholder.png" id="2_ci0bu"]
 [ext_resource type="Texture2D" uid="uid://b17n03px3l6j0" path="res://assets/MidgroundTrees_placeholder.png" id="3_ci0bu"]
@@ -10,6 +11,7 @@
 size = Vector2(1200, 400)
 
 [node name="Creek" type="Node2D" unique_id=1553795018]
+script = ExtResource("1_ftecx")
 
 [node name="Environment" type="Node2D" parent="." unique_id=1852992566]
 
@@ -375,7 +377,12 @@ texture = ExtResource("4_feo2y")
 
 [node name="InvestigationPoint" parent="." unique_id=503970521 instance=ExtResource("5_feo2y")]
 investigation_text = "This water smells unfamiliar."
+investigation_id = "creek_water_1"
 
 [node name="InvestigationPoint2" parent="." unique_id=59980597 instance=ExtResource("5_feo2y")]
 position = Vector2(503, 4)
 investigation_text = "Something has been here before me."
+investigation_id = "creek_water_2"
+
+[connection signal="investigated" from="InvestigationPoint" to="." method="_on_investigation_completed"]
+[connection signal="investigated" from="InvestigationPoint2" to="." method="_on_investigation_completed"]
