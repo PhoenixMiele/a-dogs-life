@@ -377,6 +377,7 @@ texture = ExtResource("4_feo2y")
 
 [node name="InvestigationPoint" parent="." unique_id=503970521 instance=ExtResource("5_feo2y")]
 investigation_text = "This water smells unfamiliar."
+repeat_investigation_texts = Array[String](["The smell is still unfamiliar."])
 investigation_id = "creek_water_1"
 
 [node name="InvestigationPoint2" parent="." unique_id=59980597 instance=ExtResource("5_feo2y")]
