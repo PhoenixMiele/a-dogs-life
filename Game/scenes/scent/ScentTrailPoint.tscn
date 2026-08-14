@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c5o6g15knwmeh"]
+
+[ext_resource type="Script" uid="uid://ch1keu36cwus0" path="res://scripts/scent/scent_trail_point.gd" id="1_nbva5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 40.0
+
+[node name="ScentTrailPoint" type="Area2D" unique_id=1779318193]
+script = ExtResource("1_nbva5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1354060154]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

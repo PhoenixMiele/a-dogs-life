@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ce887xia3juke" path="res://assets/NearTrees_placeholder.png" id="4_feo2y"]
 [ext_resource type="PackedScene" uid="uid://dqh5w4oitufu" path="res://scenes/investigation/InvestigationPoint.tscn" id="5_feo2y"]
 [ext_resource type="PackedScene" uid="uid://dhrnigafkw2eg" path="res://scenes/scent/ScentVisualManager.tscn" id="7_871m1"]
+[ext_resource type="PackedScene" uid="uid://deqh74ti4b215" path="res://scenes/scent/ScentTrail.tscn" id="8_icapt"]
+[ext_resource type="PackedScene" uid="uid://c5o6g15knwmeh" path="res://scenes/scent/ScentTrailPoint.tscn" id="9_6ghox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(2400, 400)
@@ -649,6 +651,7 @@ investigation_id = "creek_water_1"
 has_scent = true
 scent_type = "strong"
 scent_colour = Color(0.5641897, 0.5249983, 0.062343486, 1)
+creates_trail = true
 
 [node name="InvestigationPoint2" parent="." unique_id=59980597 instance=ExtResource("5_feo2y")]
 position = Vector2(503, 4)
@@ -669,6 +672,17 @@ shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="ScentVisualManager" parent="." unique_id=1032549496 instance=ExtResource("7_871m1")]
 
+[node name="ScentTrail" parent="." unique_id=647617573 instance=ExtResource("8_icapt")]
+
+[node name="RoutePoint1" parent="ScentTrail/Route" parent_id_path=PackedInt32Array(647617573, 1550182118) index="0" unique_id=1779318193 instance=ExtResource("9_6ghox")]
+position = Vector2(273, -8)
+
+[node name="End" parent="ScentTrail/Route" parent_id_path=PackedInt32Array(647617573, 1550182118) index="1" unique_id=1346453716 instance=ExtResource("9_6ghox")]
+position = Vector2(1269, -8)
+
 [connection signal="investigated" from="InvestigationPoint" to="." method="_on_investigation_completed"]
 [connection signal="scent_detected" from="InvestigationPoint" to="ScentVisualManager" method="show_scent"]
+[connection signal="scent_detected" from="InvestigationPoint" to="ScentTrail" method="activate"]
 [connection signal="investigated" from="InvestigationPoint2" to="." method="_on_investigation_completed"]
+
+[editable path="ScentTrail"]

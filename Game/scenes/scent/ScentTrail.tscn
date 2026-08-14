@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://deqh74ti4b215"]
+
+[ext_resource type="Script" uid="uid://7ipgx2blcwbn" path="res://scripts/scent/scent_trail.gd" id="1_nku7t"]
+
+[node name="ScentTrail" type="Node2D" unique_id=647617573]
+script = ExtResource("1_nku7t")
+
+[node name="Route" type="Node2D" parent="." unique_id=1550182118]
