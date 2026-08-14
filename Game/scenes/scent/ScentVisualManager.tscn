@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dhrnigafkw2eg"]
+
+[ext_resource type="Script" uid="uid://d0cuj0tphr1ps" path="res://scenes/scent/scent_visual_manager.gd" id="1_pmf53"]
+
+[node name="ScentVisualManager" type="Node2D" unique_id=1032549496]
+script = ExtResource("1_pmf53")

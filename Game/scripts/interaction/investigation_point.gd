@@ -1,6 +1,12 @@
 extends Area2D
 signal investigated(investigation_id: String)
-signal scent_detected(scent_type: String, duration: float, colour: Color, creates_trail: bool)
+signal scent_detected(
+	position: Vector2,
+	scent_type: String,
+	duration: float,
+	colour: Color,
+	creates_trail: bool
+)
 
 var dog_nearby: bool = false
 var dog: Node2D = null
@@ -14,6 +20,7 @@ var investigated_this_visit: bool = false
 @export var text_display_duration: float = 5.0
 @export var investigation_id: String = ""
 @export var has_scent: bool = false
+@export var repeat_has_scent: Array[bool] = []
 @export_enum("isolated", "faint", "strong") var scent_type: String = "isolated"
 @export var repeat_scent_types: Array[String] = []
 @export var scent_duration: float = 5.0
@@ -45,8 +52,14 @@ func _process(_delta: float) -> void:
 		for point in get_tree().get_nodes_in_group("investigation_point"):
 			point.hide_investigation_text()
 		investigated.emit(investigation_id)
-		if has_scent:
-			scent_detected.emit(_get_current_scent_type(), scent_duration, scent_colour, creates_trail)		
+		if _current_investigation_has_scent():
+			scent_detected.emit(
+			global_position,
+			_get_current_scent_type(),
+			scent_duration,
+			scent_colour,
+			creates_trail
+			)
 		interaction_prompt.hide()
 		investigation_label.text = "[i]%s[/i]" % _get_current_investigation_text()
 		investigation_label.global_position = dog.global_position + Vector2(-60, -100)
@@ -81,3 +94,14 @@ func _get_current_scent_type() -> String:
 		return repeat_scent_types[repeat_index]
 
 	return scent_type
+	
+func _current_investigation_has_scent() -> bool:
+	if investigation_count == 0:
+		return has_scent
+
+	var repeat_index: int = investigation_count - 1
+
+	if repeat_index < repeat_has_scent.size():
+		return repeat_has_scent[repeat_index]
+
+	return has_scent

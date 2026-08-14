@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b17n03px3l6j0" path="res://assets/MidgroundTrees_placeholder.png" id="3_ci0bu"]
 [ext_resource type="Texture2D" uid="uid://ce887xia3juke" path="res://assets/NearTrees_placeholder.png" id="4_feo2y"]
 [ext_resource type="PackedScene" uid="uid://dqh5w4oitufu" path="res://scenes/investigation/InvestigationPoint.tscn" id="5_feo2y"]
+[ext_resource type="PackedScene" uid="uid://dhrnigafkw2eg" path="res://scenes/scent/ScentVisualManager.tscn" id="7_871m1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(2400, 400)
@@ -646,8 +647,8 @@ investigation_text = "This water smells unfamiliar."
 repeat_investigation_texts = Array[String](["The smell is still unfamiliar."])
 investigation_id = "creek_water_1"
 has_scent = true
-repeat_scent_types = Array[String](["strong"])
-scent_colour = Color(0.934534, 0.00073004724, 0.9374233, 1)
+scent_type = "strong"
+scent_colour = Color(0.5641897, 0.5249983, 0.062343486, 1)
 
 [node name="InvestigationPoint2" parent="." unique_id=59980597 instance=ExtResource("5_feo2y")]
 position = Vector2(503, 4)
@@ -666,5 +667,8 @@ position = Vector2(1800, 200)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary" unique_id=1905671173]
 shape = SubResource("RectangleShape2D_yf5fn")
 
+[node name="ScentVisualManager" parent="." unique_id=1032549496 instance=ExtResource("7_871m1")]
+
 [connection signal="investigated" from="InvestigationPoint" to="." method="_on_investigation_completed"]
+[connection signal="scent_detected" from="InvestigationPoint" to="ScentVisualManager" method="show_scent"]
 [connection signal="investigated" from="InvestigationPoint2" to="." method="_on_investigation_completed"]

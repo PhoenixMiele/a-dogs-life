@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cg6ajfolefxdp"]
+
+[ext_resource type="Script" uid="uid://c1fp7re8bwy63" path="res://scripts/scent/scent_visual.gd" id="1_bd2dn"]
+
+[node name="ScentVisual" type="Node2D" unique_id=1324369443]
+script = ExtResource("1_bd2dn")
+colour = Color(0.7411765, 0.85882354, 0.09803922, 0.5647059)
+
+[node name="ScentBlob1" type="Polygon2D" parent="." unique_id=1853322460]
+color = Color(0.6392157, 0.6313726, 0, 0.36078432)
+polygon = PackedVector2Array(-144, -36.5, -177, -24.5, -182, -0.5, -169, 13.5, -138, 20.5, -116, 12.5, -103, -6.5, -108, -37.5)
+uv = PackedVector2Array(-144, -36.5, -177, -24.5, -182, -0.5, -169, 13.5, -138, 20.5, -116, 12.5, -103, -6.5, -108, -37.5)
+
+[node name="ScentBlob2" type="Polygon2D" parent="." unique_id=195567152]
+position = Vector2(-26, -30)
+color = Color(0.6392157, 0.6313726, 0, 0.36078432)
+polygon = PackedVector2Array(-144, -36.5, -177, -24.5, -182, -0.5, -169, 13.5, -138, 20.5, -116, 12.5, -103, -6.5, -108, -37.5)
+uv = PackedVector2Array(-144, -36.5, -177, -24.5, -182, -0.5, -169, 13.5, -138, 20.5, -116, 12.5, -103, -6.5, -108, -37.5)
+
+[node name="ScentBlob3" type="Polygon2D" parent="." unique_id=1318322862]
+position = Vector2(35, -30)
+color = Color(0.6392157, 0.6313726, 0, 0.36078432)
+polygon = PackedVector2Array(-144, -36.5, -177, -24.5, -182, -0.5, -169, 13.5, -138, 20.5, -116, 12.5, -103, -6.5, -108, -37.5)
+uv = PackedVector2Array(-144, -36.5, -177, -24.5, -182, -0.5, -169, 13.5, -138, 20.5, -116, 12.5, -103, -6.5, -108, -37.5)
