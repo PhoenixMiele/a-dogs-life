@@ -645,6 +645,9 @@ texture = ExtResource("4_feo2y")
 investigation_text = "This water smells unfamiliar."
 repeat_investigation_texts = Array[String](["The smell is still unfamiliar."])
 investigation_id = "creek_water_1"
+has_scent = true
+repeat_scent_types = Array[String](["strong"])
+scent_colour = Color(0.934534, 0.00073004724, 0.9374233, 1)
 
 [node name="InvestigationPoint2" parent="." unique_id=59980597 instance=ExtResource("5_feo2y")]
 position = Vector2(503, 4)
