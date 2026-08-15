@@ -672,7 +672,8 @@ shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="ScentVisualManager" parent="." unique_id=1032549496 instance=ExtResource("7_871m1")]
 
-[node name="ScentTrail" parent="." unique_id=647617573 instance=ExtResource("8_icapt")]
+[node name="ScentTrail" parent="." unique_id=647617573 node_paths=PackedStringArray("scent_visual_manager") instance=ExtResource("8_icapt")]
+scent_visual_manager = NodePath("../ScentVisualManager")
 
 [node name="RoutePoint1" parent="ScentTrail/Route" parent_id_path=PackedInt32Array(647617573, 1550182118) index="0" unique_id=1779318193 instance=ExtResource("9_6ghox")]
 position = Vector2(273, -8)
@@ -680,6 +681,7 @@ position = Vector2(273, -8)
 [node name="End" parent="ScentTrail/Route" parent_id_path=PackedInt32Array(647617573, 1550182118) index="1" unique_id=1346453716 instance=ExtResource("9_6ghox")]
 position = Vector2(1269, -8)
 
+[connection signal="body_entered" from="InvestigationPoint" to="ScentTrail" method="on_source_reentered"]
 [connection signal="investigated" from="InvestigationPoint" to="." method="_on_investigation_completed"]
 [connection signal="scent_detected" from="InvestigationPoint" to="ScentVisualManager" method="show_scent"]
 [connection signal="scent_detected" from="InvestigationPoint" to="ScentTrail" method="activate"]

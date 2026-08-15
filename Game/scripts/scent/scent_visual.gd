@@ -3,6 +3,7 @@ extends Node2D
 @export_enum("isolated", "faint", "strong") var scent_type: String = "isolated"
 @export var duration: float = 5.0
 @export var colour: Color = Color.WHITE
+@export var persistent: bool = false
 
 @onready var scent_blobs: Array[Polygon2D] = [
 	$ScentBlob1,
@@ -43,5 +44,8 @@ func _apply_scent_type() -> void:
 		scent_blob.color.a = scent_alpha
 	
 func _start_lifetime() -> void:
+	if persistent:
+		return
+	
 	await get_tree().create_timer(duration).timeout
 	queue_free()
