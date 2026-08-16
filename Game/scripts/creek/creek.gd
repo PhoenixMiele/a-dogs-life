@@ -26,6 +26,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_dig_point_dig_completed(dig_index: int) -> void:
-	pass # Replace with function body.
+	pass
+
+func _on_scent_trail_trail_completed() -> void:
+	$DigPoint2.unlock()

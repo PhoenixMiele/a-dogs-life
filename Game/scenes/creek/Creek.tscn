@@ -768,14 +768,24 @@ position = Vector2(1092, -10)
 [node name="DigPoint" parent="." unique_id=1835764837 instance=ExtResource("10_iy0fi")]
 position = Vector2(749, 7)
 
+[node name="DigPoint2" parent="." unique_id=1797918753 instance=ExtResource("10_iy0fi")]
+position = Vector2(-453, 4)
+starts_available = false
+
+[node name="CollisionShape2D" parent="DigPoint2" index="0" unique_id=789005318]
+position = Vector2(1, -1)
+
 [connection signal="body_entered" from="InvestigationPoint" to="ScentTrail" method="on_source_reentered"]
 [connection signal="investigated" from="InvestigationPoint" to="." method="_on_investigation_completed"]
 [connection signal="scent_detected" from="InvestigationPoint" to="ScentVisualManager" method="show_scent"]
 [connection signal="scent_detected" from="InvestigationPoint" to="ScentTrail" method="activate"]
 [connection signal="investigated" from="InvestigationPoint2" to="." method="_on_investigation_completed"]
 [connection signal="scent_detected" from="InvestigationPoint2" to="ScentVisualManager" method="show_scent"]
+[connection signal="trail_completed" from="ScentTrail" to="." method="_on_scent_trail_trail_completed"]
 [connection signal="dig_completed" from="DigPoint" to="." method="_on_dig_point_dig_completed"]
+[connection signal="dig_completed" from="DigPoint2" to="." method="_on_dig_point_dig_completed"]
 
 [editable path="InvestigationPoint"]
 [editable path="ScentTrail"]
 [editable path="DigPoint"]
+[editable path="DigPoint2"]

@@ -1,5 +1,6 @@
 extends Node2D
 const SCENT_VISUAL_SCENE: PackedScene = preload("res://scenes/scent/ScentVisual.tscn")
+signal trail_completed
 
 @onready var route: Node2D = $Route
 @export var scent_visual_manager: Node
@@ -77,6 +78,8 @@ func _on_point_reached(point: Node) -> void:
 	if current_point_index >= route_points.size():
 		active = false
 		completed = true
+		trail_completed.emit()
+		
 		if scent_visual_manager:
 			scent_visual_manager.clear_persistent_scent()
 		print("Scent trail complete")
