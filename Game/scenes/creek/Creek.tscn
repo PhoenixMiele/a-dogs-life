@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhrnigafkw2eg" path="res://scenes/scent/ScentVisualManager.tscn" id="7_871m1"]
 [ext_resource type="PackedScene" uid="uid://deqh74ti4b215" path="res://scenes/scent/ScentTrail.tscn" id="8_icapt"]
 [ext_resource type="PackedScene" uid="uid://c5o6g15knwmeh" path="res://scenes/scent/ScentTrailPoint.tscn" id="9_6ghox"]
+[ext_resource type="PackedScene" uid="uid://ir7u4e3x7cyc" path="res://scenes/dig/DigPoint.tscn" id="10_iy0fi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(2400, 400)
@@ -764,11 +765,17 @@ position = Vector2(444, -10)
 [node name="End" parent="ScentTrail/Route" parent_id_path=PackedInt32Array(647617573, 1550182118) index="1" unique_id=1346453716 instance=ExtResource("9_6ghox")]
 position = Vector2(1092, -10)
 
+[node name="DigPoint" parent="." unique_id=1835764837 instance=ExtResource("10_iy0fi")]
+position = Vector2(749, 7)
+
 [connection signal="body_entered" from="InvestigationPoint" to="ScentTrail" method="on_source_reentered"]
 [connection signal="investigated" from="InvestigationPoint" to="." method="_on_investigation_completed"]
 [connection signal="scent_detected" from="InvestigationPoint" to="ScentVisualManager" method="show_scent"]
 [connection signal="scent_detected" from="InvestigationPoint" to="ScentTrail" method="activate"]
 [connection signal="investigated" from="InvestigationPoint2" to="." method="_on_investigation_completed"]
 [connection signal="scent_detected" from="InvestigationPoint2" to="ScentVisualManager" method="show_scent"]
+[connection signal="dig_completed" from="DigPoint" to="." method="_on_dig_point_dig_completed"]
 
+[editable path="InvestigationPoint"]
 [editable path="ScentTrail"]
+[editable path="DigPoint"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ir7u4e3x7cyc"]
+
+[ext_resource type="Script" uid="uid://d3f34b4iaypux" path="res://scripts/dig/dig_point.gd" id="1_2qayu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="DigPoint" type="Area2D" unique_id=1835764837]
+script = ExtResource("1_2qayu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=789005318]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=1334204197]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "[E] Dig"
+
+[node name="HoleVisual" type="Node2D" parent="." unique_id=633221372]
+visible = false
+
+[node name="PlaceHolderHole" type="Polygon2D" parent="HoleVisual" unique_id=61269268]
+position = Vector2(154, 39)
+color = Color(0.23137255, 0.14117648, 0.09411765, 1)
+polygon = PackedVector2Array(-194.5, -45.5, -190.5, -21.5, -162.5, -3.5, -128.5, -1.5, -111.5, -18.5, -111.5, -47.5)
+uv = PackedVector2Array(-194.5, -45.5, -190.5, -21.5, -162.5, -3.5, -128.5, -1.5, -111.5, -18.5, -111.5, -47.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
