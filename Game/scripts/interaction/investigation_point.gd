@@ -51,23 +51,36 @@ func _process(_delta: float) -> void:
 	if dog_nearby and not investigated_this_visit and _has_available_investigation_text() and Input.is_action_just_pressed("investigate"):
 		for point in get_tree().get_nodes_in_group("investigation_point"):
 			point.hide_investigation_text()
+
 		investigated.emit(investigation_id)
-		if _current_investigation_has_scent():
-			scent_detected.emit(
-			global_position,
-			_get_current_scent_type(),
-			scent_duration,
-			scent_colour,
-			creates_trail
-			)
+
+		var has_current_scent: bool = _current_investigation_has_scent()
+		var current_scent_type: String = _get_current_scent_type()
+
 		interaction_prompt.hide()
 		investigation_label.text = "[i]%s[/i]" % _get_current_investigation_text()
 		investigation_label.global_position = dog.global_position + Vector2(-60, -100)
 		investigation_label.show()
+
 		investigation_count += 1
 		investigated_this_visit = true
-		await get_tree().create_timer(text_display_duration).timeout
+
+		if has_current_scent:
+			await get_tree().create_timer(1.0).timeout
+			scent_detected.emit(
+				global_position,
+				current_scent_type,
+				scent_duration,
+				scent_colour,
+				creates_trail
+			)
+
+			await get_tree().create_timer(max(text_display_duration - 1.0, 0.0)).timeout
+		else:
+			await get_tree().create_timer(text_display_duration).timeout
+
 		investigation_label.hide()
+
 		if not dog_nearby:
 			dog = null
 
