@@ -3,6 +3,25 @@ extends Node2D
 const SCENT_VISUAL_SCENE: PackedScene = preload("res://scenes/scent/ScentVisual.tscn")
 var persistent_scent_visual: Node2D = null
 
+func _create_scent_visual(
+	scent_position: Vector2,
+	scent_type: String,
+	duration: float,
+	colour: Color,
+	persistent: bool
+) -> Node2D:
+	var scent_visual = SCENT_VISUAL_SCENE.instantiate()
+
+	scent_visual.scent_type = scent_type
+	scent_visual.duration = duration
+	scent_visual.colour = colour
+	scent_visual.persistent = persistent
+
+	add_child(scent_visual)
+	scent_visual.global_position = scent_position
+
+	return scent_visual
+
 func show_scent(
 	scent_position: Vector2,
 	scent_type: String,
@@ -12,15 +31,14 @@ func show_scent(
 ) -> void:
 	if creates_trail:
 		return
-	var scent_visual = SCENT_VISUAL_SCENE.instantiate()
-	scent_visual.scent_type = scent_type
-	scent_visual.duration = duration
-	scent_visual.colour = colour
-	scent_visual.persistent = creates_trail
-	if creates_trail:
-		persistent_scent_visual = scent_visual
-	add_child(scent_visual)
-	scent_visual.global_position = scent_position
+
+	_create_scent_visual(
+		scent_position,
+		scent_type,
+		duration,
+		colour,
+		false
+	)
 
 func show_persistent_scent(
 	scent_position: Vector2,
@@ -28,17 +46,29 @@ func show_persistent_scent(
 	duration: float,
 	colour: Color
 ) -> void:
-	var scent_visual = SCENT_VISUAL_SCENE.instantiate()
+	persistent_scent_visual = _create_scent_visual(
+		scent_position,
+		scent_type,
+		duration,
+		colour,
+		true
+	)
 
-	scent_visual.scent_type = scent_type
-	scent_visual.duration = duration
-	scent_visual.colour = colour
-	scent_visual.persistent = true
+func show_trail_scent(
+	scent_position: Vector2,
+	scent_type: String,
+	duration: float,
+	colour: Color
+) -> void:
+	var scent_visual = _create_scent_visual(
+		scent_position,
+		scent_type,
+		duration,
+		colour,
+		false
+	)
 
-	add_child(scent_visual)
-	scent_visual.global_position = scent_position
-
-	persistent_scent_visual = scent_visual
+	scent_visual.modulate.a = 0.7
 
 func clear_persistent_scent() -> void:
 	if is_instance_valid(persistent_scent_visual):

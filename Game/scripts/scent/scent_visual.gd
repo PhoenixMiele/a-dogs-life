@@ -39,9 +39,6 @@ func _apply_scent_type() -> void:
 
 	for scent_blob in scent_blobs:
 		scent_blob.color.a = scent_alpha
-
-	for scent_blob in scent_blobs:
-		scent_blob.color.a = scent_alpha
 	
 func _start_lifetime() -> void:
 	if persistent:

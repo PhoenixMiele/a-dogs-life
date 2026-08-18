@@ -1,5 +1,4 @@
 extends Node2D
-const SCENT_VISUAL_SCENE: PackedScene = preload("res://scenes/scent/ScentVisual.tscn")
 signal trail_completed
 
 @onready var route: Node2D = $Route
@@ -50,15 +49,13 @@ func activate(
 	print("Scent trail activated")
 
 func _show_scent_at(point: Node2D) -> void:
-	var scent_visual = SCENT_VISUAL_SCENE.instantiate()
-
-	scent_visual.scent_type = trail_scent_type
-	scent_visual.duration = trail_duration
-	scent_visual.colour = trail_colour
-	
-	scent_visual.modulate.a = 0.7
-	add_child(scent_visual)
-	scent_visual.global_position = point.global_position
+	if scent_visual_manager:
+		scent_visual_manager.show_trail_scent(
+			point.global_position,
+			trail_scent_type,
+			trail_duration,
+			trail_colour
+		)
 
 func _on_point_reached(point: Node) -> void:
 	if not active:
