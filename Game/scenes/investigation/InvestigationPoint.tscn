@@ -11,12 +11,6 @@ script = ExtResource("1_skeod")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1546380566]
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="InteractionPrompt" type="Label" parent="." unique_id=1996440154]
-visible = false
-offset_right = 119.0
-offset_bottom = 23.0
-text = "[E] Investigate"
-
 [node name="InvestigationText" type="RichTextLabel" parent="." unique_id=304544981]
 visible = false
 offset_right = 300.0

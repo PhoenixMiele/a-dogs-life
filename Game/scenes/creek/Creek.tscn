@@ -768,6 +768,9 @@ position = Vector2(1092, -10)
 [node name="DigPoint" parent="." unique_id=1835764837 instance=ExtResource("10_iy0fi")]
 position = Vector2(749, 7)
 
+[node name="CollisionShape2D" parent="DigPoint" index="0" unique_id=789005318]
+position = Vector2(-2, -2)
+
 [node name="DigPoint2" parent="." unique_id=1797918753 instance=ExtResource("10_iy0fi")]
 position = Vector2(-453, 4)
 starts_available = false

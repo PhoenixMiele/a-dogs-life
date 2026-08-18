@@ -10,12 +10,6 @@ script = ExtResource("1_2qayu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=789005318]
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="PromptLabel" type="Label" parent="." unique_id=1334204197]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "[E] Dig"
-
 [node name="HoleVisual" type="Node2D" parent="." unique_id=633221372]
 visible = false
 

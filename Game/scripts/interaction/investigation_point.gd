@@ -15,7 +15,6 @@ var investigated_this_visit: bool = false
 
 @export_multiline var investigation_text: String = ""
 @export var repeat_investigation_texts: Array[String] = []
-@onready var interaction_prompt: Label = $InteractionPrompt
 @onready var investigation_label: RichTextLabel = $InvestigationText
 @export var text_display_duration: float = 5.0
 @export var investigation_id: String = ""
@@ -30,59 +29,72 @@ var investigated_this_visit: bool = false
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("dog"):
 		dog = body
+		dog.register_interactable(self)
 		dog_nearby = true
-		if _has_available_investigation_text():
-			interaction_prompt.show()
 					
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("dog"):
 		dog_nearby = false
+		dog.unregister_interactable(self)
 		investigated_this_visit = false
-		interaction_prompt.hide()
 		if not investigation_label.visible:
 			dog = null
 
+func can_interact() -> bool:
+	return dog_nearby and not investigated_this_visit and _has_available_investigation_text()
+
+func get_interaction_text() -> String:
+	return "Investigate"
+func get_interaction_priority() -> int:
+	return 100
+	
+func interact() -> void:
+	_perform_investigation()
+
+func blocks_interaction() -> bool:
+	return false
+	
 func _process(_delta: float) -> void:
 	if investigation_label.visible and dog:
-		investigation_label.global_position = dog.global_position + Vector2(-60, -100)
-	if interaction_prompt.visible and dog:
-		interaction_prompt.global_position = dog.global_position + Vector2(-45, -70)
-	
-	if dog_nearby and not investigated_this_visit and _has_available_investigation_text() and Input.is_action_just_pressed("investigate"):
-		for point in get_tree().get_nodes_in_group("investigation_point"):
-			point.hide_investigation_text()
+		investigation_label.global_position = dog.global_position + Vector2(-60, -130)
 
-		investigated.emit(investigation_id)
+func _perform_investigation() -> void:
+	if not can_interact():
+		return
 
-		var has_current_scent: bool = _current_investigation_has_scent()
-		var current_scent_type: String = _get_current_scent_type()
+	for point in get_tree().get_nodes_in_group("investigation_point"):
+		point.hide_investigation_text()
 
-		interaction_prompt.hide()
-		investigation_label.text = "[i]%s[/i]" % _get_current_investigation_text()
-		investigation_label.global_position = dog.global_position + Vector2(-60, -100)
-		investigation_label.show()
+	investigated.emit(investigation_id)
 
-		investigation_count += 1
-		investigated_this_visit = true
+	var has_current_scent: bool = _current_investigation_has_scent()
+	var current_scent_type: String = _get_current_scent_type()
 
-		if has_current_scent:
-			await get_tree().create_timer(1.0).timeout
-			scent_detected.emit(
-				global_position,
-				current_scent_type,
-				scent_duration,
-				scent_colour,
-				creates_trail
-			)
+	investigation_label.text = "[i]%s[/i]" % _get_current_investigation_text()
+	investigation_label.global_position = dog.global_position + Vector2(-60, -130)
+	investigation_label.show()
 
-			await get_tree().create_timer(max(text_display_duration - 1.0, 0.0)).timeout
-		else:
-			await get_tree().create_timer(text_display_duration).timeout
+	investigation_count += 1
+	investigated_this_visit = true
 
-		investigation_label.hide()
+	if has_current_scent:
+		await get_tree().create_timer(1.0).timeout
+		scent_detected.emit(
+			global_position,
+			current_scent_type,
+			scent_duration,
+			scent_colour,
+			creates_trail
+		)
 
-		if not dog_nearby:
-			dog = null
+		await get_tree().create_timer(max(text_display_duration - 1.0, 0.0)).timeout
+	else:
+		await get_tree().create_timer(text_display_duration).timeout
+
+	investigation_label.hide()
+
+	if not dog_nearby:
+		dog = null
 
 func hide_investigation_text() -> void:
 	investigation_label.hide()
@@ -93,7 +105,10 @@ func _get_current_investigation_text() -> String:
 
 	var repeat_index: int = investigation_count - 1
 	return repeat_investigation_texts[repeat_index]
-	
+
+func holds_interaction_priority() -> bool:
+	return dog_nearby and investigation_label.visible
+
 func _has_available_investigation_text() -> bool:
 	return investigation_count <= repeat_investigation_texts.size()
 	
