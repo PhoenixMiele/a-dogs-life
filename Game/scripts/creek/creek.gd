@@ -17,11 +17,6 @@ func _all_creek_investigations_complete() -> bool:
 		and "creek_water_2" in completed_investigations
 	)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -31,3 +26,6 @@ func _on_dig_point_dig_completed(dig_index: int) -> void:
 
 func _on_scent_trail_trail_completed() -> void:
 	$DigPoint2.unlock()
+
+func _ready() -> void:
+	pass

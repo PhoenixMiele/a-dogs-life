@@ -14,6 +14,10 @@ config/name="A Dog's Life"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ActState="*uid://b0004g133crcs"
+
 [display]
 
 window/stretch/mode="canvas_items"
