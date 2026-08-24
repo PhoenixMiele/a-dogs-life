@@ -44,6 +44,7 @@ metadata/_custom_type_script = "uid://cc20v1tw38qru"
 size = Vector2(20, 400)
 
 [node name="Creek" type="Node2D" unique_id=1553795018]
+position = Vector2(0, -10)
 script = ExtResource("1_ftecx")
 
 [node name="Environment" type="Node2D" parent="." unique_id=1852992566]
@@ -754,12 +755,12 @@ texture = ExtResource("4_feo2y")
 
 [node name="InvestigationPoint" parent="." unique_id=503970521 instance=ExtResource("5_feo2y")]
 investigations = Array[ExtResource("7_31hli")]([SubResource("Resource_skeod"), SubResource("Resource_6atpe")])
-investigation_id = "creek_water_1"
+investigation_id = &"Creek_Investigate_001"
 
 [node name="InvestigationPoint2" parent="." unique_id=59980597 instance=ExtResource("5_feo2y")]
 position = Vector2(1682, -6)
 investigations = Array[ExtResource("7_31hli")]([SubResource("Resource_31hli")])
-investigation_id = "creek_water_2"
+investigation_id = &"Creek_Investigate_002"
 
 [node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=1209450582]
 position = Vector2(-600, 200)
@@ -777,6 +778,7 @@ shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="ScentTrail" parent="." unique_id=647617573 node_paths=PackedStringArray("scent_visual_manager") instance=ExtResource("8_icapt")]
 scent_visual_manager = NodePath("../ScentVisualManager")
+trail_id = &"Creek_ScentTrail_001"
 
 [node name="RoutePoint1" parent="ScentTrail/Route" parent_id_path=PackedInt32Array(647617573, 1550182118) index="0" unique_id=1779318193 instance=ExtResource("9_6ghox")]
 position = Vector2(444, -10)
@@ -786,6 +788,7 @@ position = Vector2(1092, -10)
 
 [node name="DigPoint" parent="." unique_id=1835764837 instance=ExtResource("10_iy0fi")]
 position = Vector2(749, 7)
+dig_id = &"Creek_Dig_001"
 
 [node name="CollisionShape2D" parent="DigPoint" index="0" unique_id=789005318]
 position = Vector2(-2, -2)
@@ -793,6 +796,7 @@ position = Vector2(-2, -2)
 [node name="DigPoint2" parent="." unique_id=1797918753 instance=ExtResource("10_iy0fi")]
 position = Vector2(-453, 4)
 starts_available = false
+dig_id = &"Creek_Dig_002"
 
 [node name="CollisionShape2D" parent="DigPoint2" index="0" unique_id=789005318]
 position = Vector2(1, -1)

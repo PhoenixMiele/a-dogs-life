@@ -3,6 +3,8 @@ signal trail_completed
 
 @onready var route: Node2D = $Route
 @export var scent_visual_manager: Node
+@export var trail_id: StringName
+
 var route_points: Array[Node] = []
 var current_point_index: int = 0
 var active: bool = false
@@ -16,6 +18,13 @@ func _ready() -> void:
 
 	for point in route_points:
 		point.dog_reached.connect(_on_point_reached.bind(point))
+	
+	if ActState.has_state(trail_id):
+		var state: Dictionary = ActState.get_state(trail_id)
+		completed = state.get("completed", false)
+
+		if completed:
+			active = false
 
 func activate(
 	_scent_position: Vector2,
@@ -62,7 +71,13 @@ func _on_point_reached(point: Node) -> void:
 		return
 		
 	if current_point_index >= route_points.size():
-		return
+		active = false
+		completed = true
+
+		ActState.set_state(trail_id, {
+			"completed": true
+		})
+		trail_completed.emit()
 
 	if route_points[current_point_index] != point:
 		return
@@ -75,10 +90,16 @@ func _on_point_reached(point: Node) -> void:
 	if current_point_index >= route_points.size():
 		active = false
 		completed = true
+
+		ActState.set_state(trail_id, {
+			"completed": true
+		})
+
 		trail_completed.emit()
 		
 		if scent_visual_manager:
 			scent_visual_manager.clear_persistent_scent()
+
 		print("Scent trail complete")
 		
 func on_source_reentered(body: Node2D) -> void:

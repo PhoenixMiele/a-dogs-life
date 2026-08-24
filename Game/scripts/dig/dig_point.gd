@@ -4,6 +4,7 @@ signal dig_completed(dig_index: int)
 @export var starts_available: bool = true
 @export var max_digs: int = 1
 @export var dig_duration: float = 4.0
+@export var dig_id: StringName
 
 var available: bool = false
 var dog_nearby: bool = false
@@ -15,8 +16,25 @@ var dog: CharacterBody2D = null
 func _ready() -> void:
 	available = starts_available
 
+	if not ActState.has_state(dig_id):
+		return
+
+	var state: Dictionary = ActState.get_state(dig_id)
+
+	available = state.get("available", starts_available)
+	dig_count = state.get("dig_count", 0)
+	exhausted = state.get("exhausted", false)
+
+	$HoleVisual.visible = dig_count > 0
+
 func unlock() -> void:
 	available = true
+
+	ActState.set_state(dig_id, {
+		"available": available,
+		"dig_count": dig_count,
+		"exhausted": exhausted
+	})
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("dog"):		
@@ -76,6 +94,12 @@ func start_dig() -> void:
 
 	if dig_count >= max_digs:
 		exhausted = true
+
+	ActState.set_state(dig_id, {
+		"available": available,
+		"dig_count": dig_count,
+		"exhausted": exhausted
+	})
 
 	if not dog_nearby:
 		dog = null

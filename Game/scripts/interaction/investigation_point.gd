@@ -1,5 +1,5 @@
 extends Area2D
-signal investigated(investigation_id: String)
+signal investigated(investigation_id: StringName)
 signal scent_detected(
 	position: Vector2,
 	scent_type: String,
@@ -16,7 +16,7 @@ var investigated_this_visit: bool = false
 @export var investigations: Array[InvestigationData] = []
 @onready var investigation_label: RichTextLabel = $InvestigationText
 @export var text_display_duration: float = 5.0
-@export var investigation_id: String = ""
+@export var investigation_id: StringName
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("dog"):
@@ -67,6 +67,10 @@ func _perform_investigation() -> void:
 
 	investigation_count += 1
 	investigated_this_visit = true
+	
+	ActState.set_state(investigation_id, {
+	"investigation_count": investigation_count
+		})
 
 	if current_investigation.has_scent:
 		await get_tree().create_timer(1.0).timeout
@@ -99,3 +103,9 @@ func holds_interaction_priority() -> bool:
 func _has_available_investigation_text() -> bool:
 	return investigation_count < investigations.size()
 	
+func _ready() -> void:
+	if not ActState.has_state(investigation_id):
+		return
+
+	var state: Dictionary = ActState.get_state(investigation_id)
+	investigation_count = state.get("investigation_count", 0)

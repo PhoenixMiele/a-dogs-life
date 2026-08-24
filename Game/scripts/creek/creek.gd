@@ -1,9 +1,9 @@
 extends Node2D
 signal investigations_completed
-var completed_investigations: Array[String] = []
+var completed_investigations: Array[StringName] = []
 var investigations_are_complete: bool = false
 
-func _on_investigation_completed(investigation_id: String) -> void:
+func _on_investigation_completed(investigation_id: StringName) -> void:
 	if investigation_id not in completed_investigations:
 		completed_investigations.append(investigation_id)
 		
@@ -13,14 +13,14 @@ func _on_investigation_completed(investigation_id: String) -> void:
 		
 func _all_creek_investigations_complete() -> bool:
 	return (
-		"creek_water_1" in completed_investigations
-		and "creek_water_2" in completed_investigations
+		&"Creek_Investigate_001" in completed_investigations
+		and &"Creek_Investigate_002" in completed_investigations
 	)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("debug_reload_scene"):
+		get_tree().reload_current_scene()
+		
 func _on_dig_point_dig_completed(dig_index: int) -> void:
 	pass
 
