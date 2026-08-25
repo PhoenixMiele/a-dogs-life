@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dvoky4ncolngl"]
+
+[ext_resource type="Script" uid="uid://bpnq0qgyq04ah" path="res://scripts/section/entry_point.gd" id="1_pquwl"]
+
+[node name="EntryPoint" type="Marker2D" unique_id=183149553]
+script = ExtResource("1_pquwl")

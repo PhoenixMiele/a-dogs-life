@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ActState="*uid://b0004g133crcs"
+SectionManager="*uid://c8hdc2272tvpy"
 
 [display]
 

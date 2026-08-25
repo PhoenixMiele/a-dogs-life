@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c8xgub1cymicg"]
+
+[ext_resource type="PackedScene" uid="uid://dvoky4ncolngl" path="res://scenes/section/EntryPoint.tscn" id="1_g1w32"]
+[ext_resource type="PackedScene" uid="uid://klpe6hjghogx" path="res://scenes/dog/Dog.tscn" id="2_jpqqy"]
+[ext_resource type="PackedScene" uid="uid://d1rv5conkcwxj" path="res://scenes/section/SectionTransition.tscn" id="3_yhi80"]
+
+[node name="Creek2" type="Node2D" unique_id=1300093653]
+
+[node name="EntryPointLeft" parent="." unique_id=183149553 instance=ExtResource("1_g1w32")]
+position = Vector2(100, 0)
+entry_id = &"Creek2_Entry_001"
+
+[node name="Dog" parent="." unique_id=1267395600 instance=ExtResource("2_jpqqy")]
+position = Vector2(338, 3)
+
+[node name="SectionTransitionLeft" parent="." unique_id=296857368 instance=ExtResource("3_yhi80")]
+destination_scene = "uid://dk3ccyt61vj0i"
+destination_entry_id = &"Creek_Entry_002"

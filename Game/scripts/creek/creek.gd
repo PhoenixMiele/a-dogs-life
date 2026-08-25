@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug_reload_scene"):
 		get_tree().reload_current_scene()
 		
-func _on_dig_point_dig_completed(dig_index: int) -> void:
+func _on_dig_point_dig_completed(_dig_index: int) -> void:
 	pass
 
 func _on_scent_trail_trail_completed() -> void:

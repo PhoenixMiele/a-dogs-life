@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b0vl041lu4imo" path="res://scripts/creek/creek.gd" id="1_ftecx"]
 [ext_resource type="PackedScene" uid="uid://klpe6hjghogx" path="res://scenes/dog/Dog.tscn" id="1_t3a0n"]
+[ext_resource type="PackedScene" uid="uid://dvoky4ncolngl" path="res://scenes/section/EntryPoint.tscn" id="2_6atpe"]
 [ext_resource type="Texture2D" uid="uid://ca2arhqp13k5r" path="res://assets/DistantTrees_placeholder.png" id="2_ci0bu"]
+[ext_resource type="PackedScene" uid="uid://d1rv5conkcwxj" path="res://scenes/section/SectionTransition.tscn" id="2_neh63"]
 [ext_resource type="Texture2D" uid="uid://b17n03px3l6j0" path="res://assets/MidgroundTrees_placeholder.png" id="3_ci0bu"]
 [ext_resource type="Texture2D" uid="uid://ce887xia3juke" path="res://assets/NearTrees_placeholder.png" id="4_feo2y"]
 [ext_resource type="PackedScene" uid="uid://dqh5w4oitufu" path="res://scenes/investigation/InvestigationPoint.tscn" id="5_feo2y"]
@@ -46,6 +48,19 @@ size = Vector2(20, 400)
 [node name="Creek" type="Node2D" unique_id=1553795018]
 position = Vector2(0, -10)
 script = ExtResource("1_ftecx")
+
+[node name="SectionTransitionRight" parent="." unique_id=296857368 instance=ExtResource("2_neh63")]
+position = Vector2(1774, -9)
+destination_scene = "uid://c8xgub1cymicg"
+destination_entry_id = &"Creek2_Entry_001"
+
+[node name="EntryPointRight" parent="." unique_id=183149553 instance=ExtResource("2_6atpe")]
+position = Vector2(1703, 0)
+entry_id = &"Creek_Entry_002"
+
+[node name="EntryPointLeft" parent="." unique_id=283651811 instance=ExtResource("2_6atpe")]
+position = Vector2(-300, 0)
+entry_id = &"Creek_Entry_001"
 
 [node name="Environment" type="Node2D" parent="." unique_id=1852992566]
 
@@ -711,9 +726,6 @@ color = Color(0.21176471, 0.3529412, 0.03137255, 1)
 polygon = PackedVector2Array(-386.35168, -15.5, -379.35168, -65.5, -370.35168, -55.5, -363.35168, -72.5, -359.35168, -88.5, -349.35168, -92.5, -344.35168, -81.5, -341.35168, -63.5, -336.35168, -73.5, -328.35168, -80.5, -314.35168, -54.5, -314.35168, -54.5, -293.35168, -66.5, -293.35168, -66.5, -289.35168, -37.5, -298.35168, -31.5, -303.35168, -18.5, -304.35168, -16.5, -323.35168, -7.5, -355.35168, -7.5)
 uv = PackedVector2Array(-342.5, -15.5, -335.5, -65.5, -326.5, -55.5, -319.5, -72.5, -315.5, -88.5, -305.5, -92.5, -300.5, -81.5, -297.5, -63.5, -292.5, -73.5, -284.5, -80.5, -270.5, -54.5, -270.5, -54.5, -249.5, -66.5, -249.5, -66.5, -245.5, -37.5, -254.5, -31.5, -259.5, -18.5, -260.5, -16.5, -279.5, -7.5, -311.5, -7.5)
 
-[node name="DogSpawn" type="Marker2D" parent="." unique_id=2008666271]
-position = Vector2(-300, 0)
-
 [node name="Ground" type="StaticBody2D" parent="." unique_id=2033547539]
 position = Vector2(0, 200)
 
@@ -758,7 +770,7 @@ investigations = Array[ExtResource("7_31hli")]([SubResource("Resource_skeod"), S
 investigation_id = &"Creek_Investigate_001"
 
 [node name="InvestigationPoint2" parent="." unique_id=59980597 instance=ExtResource("5_feo2y")]
-position = Vector2(1682, -6)
+position = Vector2(1589, -12)
 investigations = Array[ExtResource("7_31hli")]([SubResource("Resource_31hli")])
 investigation_id = &"Creek_Investigate_002"
 
