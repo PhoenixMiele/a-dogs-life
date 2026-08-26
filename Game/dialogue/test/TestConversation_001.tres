@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ConversationData" format=3 uid="uid://kbahpfa0facq"]
+
+[ext_resource type="Script" uid="uid://dxc0i7byanmeg" path="res://scripts/dialogue/dialogue_line.gd" id="1_p6kyr"]
+[ext_resource type="Script" uid="uid://coe7bfg3fydd0" path="res://scripts/dialogue/conversation_data.gd" id="2_pwtys"]
+
+[sub_resource type="Resource" id="Resource_mxqk3"]
+script = ExtResource("1_p6kyr")
+speaker_id = &"npc"
+text = "Hello there."
+metadata/_custom_type_script = "uid://dxc0i7byanmeg"
+
+[sub_resource type="Resource" id="Resource_jxy2c"]
+script = ExtResource("1_p6kyr")
+speaker_id = &"dog"
+text = "Hello."
+metadata/_custom_type_script = "uid://dxc0i7byanmeg"
+
+[resource]
+script = ExtResource("2_pwtys")
+conversation_id = &"Creek2_Dialogue_001"
+lines = Array[ExtResource("1_p6kyr")]([SubResource("Resource_mxqk3"), SubResource("Resource_jxy2c")])
+metadata/_custom_type_script = "uid://coe7bfg3fydd0"

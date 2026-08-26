@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ConversationData" format=3 uid="uid://bfehpy7djbktk"]
+
+[ext_resource type="Script" uid="uid://dxc0i7byanmeg" path="res://scripts/dialogue/dialogue_line.gd" id="1_ik801"]
+[ext_resource type="Script" uid="uid://coe7bfg3fydd0" path="res://scripts/dialogue/conversation_data.gd" id="2_yl1vg"]
+
+[sub_resource type="Resource" id="Resource_vna2p"]
+script = ExtResource("1_ik801")
+speaker_id = &"npc"
+text = "Are you lost?"
+metadata/_custom_type_script = "uid://dxc0i7byanmeg"
+
+[sub_resource type="Resource" id="Resource_am0r6"]
+script = ExtResource("1_ik801")
+speaker_id = &"dog"
+text = "I need to get home."
+metadata/_custom_type_script = "uid://dxc0i7byanmeg"
+
+[resource]
+script = ExtResource("2_yl1vg")
+conversation_id = &"Creek2_Dialogue_002"
+presentation_mode = 1
+lines = Array[ExtResource("1_ik801")]([SubResource("Resource_vna2p"), SubResource("Resource_am0r6")])
+metadata/_custom_type_script = "uid://coe7bfg3fydd0"

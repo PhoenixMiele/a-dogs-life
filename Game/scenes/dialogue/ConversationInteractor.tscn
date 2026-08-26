@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dndog3mr7u0oy"]
+
+[ext_resource type="Script" uid="uid://birjp01n33tfs" path="res://scripts/dialogue/conversation_interactor.gd" id="1_mh0xj"]
+[ext_resource type="Script" uid="uid://cwqmvenysqwdk" path="res://scripts/dialogue/conversation.gd" id="2_n41cu"]
+[ext_resource type="Script" uid="uid://c8vhltp32kaib" path="res://scripts/dialogue/ambient_conversation_driver.gd" id="3_n41cu"]
+[ext_resource type="Script" uid="uid://k0wox7wnbwl7" path="res://scripts/dialogue/focused_conversation_driver.gd" id="4_8yk3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="ConversationInteractor" type="Area2D" unique_id=1984171020]
+script = ExtResource("1_mh0xj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871640986]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Conversation" type="Node" parent="." unique_id=1189848632]
+script = ExtResource("2_n41cu")
+
+[node name="AmbientConversationDriver" type="Node" parent="." unique_id=1915554993]
+script = ExtResource("3_n41cu")
+
+[node name="FocusedConversationDriver" type="Node" parent="." unique_id=1264249083]
+script = ExtResource("4_8yk3m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
