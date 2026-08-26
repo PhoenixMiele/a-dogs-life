@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c4ii7u2rnvh4v"]
+
+[ext_resource type="Script" uid="uid://bbw11vfnh0ekl" path="res://scripts/event/event_trigger.gd" id="1_rbb71"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(200, 300)
+
+[node name="EventTrigger" type="Area2D" unique_id=134485838]
+script = ExtResource("1_rbb71")
+event_id = &"Creek2_Event_001"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1002362443]
+shape = SubResource("RectangleShape2D_g4v7s")

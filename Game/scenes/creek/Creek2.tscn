@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://c8xgub1cymicg"]
 
+[ext_resource type="Script" uid="uid://dm3xulq71kbtc" path="res://scripts/creek/creek2.gd" id="1_df82v"]
 [ext_resource type="PackedScene" uid="uid://dvoky4ncolngl" path="res://scenes/section/EntryPoint.tscn" id="1_g1w32"]
 [ext_resource type="PackedScene" uid="uid://klpe6hjghogx" path="res://scenes/dog/Dog.tscn" id="2_jpqqy"]
 [ext_resource type="PackedScene" uid="uid://d1rv5conkcwxj" path="res://scenes/section/SectionTransition.tscn" id="3_yhi80"]
+[ext_resource type="PackedScene" uid="uid://c4ii7u2rnvh4v" path="res://scenes/event/EventTrigger.tscn" id="4_sy16b"]
 
 [node name="Creek2" type="Node2D" unique_id=1300093653]
+script = ExtResource("1_df82v")
 
 [node name="EntryPointLeft" parent="." unique_id=183149553 instance=ExtResource("1_g1w32")]
 position = Vector2(100, 0)
@@ -16,3 +19,15 @@ position = Vector2(338, 3)
 [node name="SectionTransitionLeft" parent="." unique_id=296857368 instance=ExtResource("3_yhi80")]
 destination_scene = "uid://dk3ccyt61vj0i"
 destination_entry_id = &"Creek_Entry_002"
+
+[node name="EventTriggerTEST" parent="." unique_id=134485838 instance=ExtResource("4_sy16b")]
+position = Vector2(500, 0)
+
+[node name="EventTestVisual" type="ColorRect" parent="." unique_id=538862548]
+visible = false
+offset_left = 113.0
+offset_top = -41.0
+offset_right = 153.0
+offset_bottom = -1.0
+
+[connection signal="triggered" from="EventTriggerTEST" to="." method="_on_event_trigger_test_triggered"]

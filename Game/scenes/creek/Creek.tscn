@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b17n03px3l6j0" path="res://assets/MidgroundTrees_placeholder.png" id="3_ci0bu"]
 [ext_resource type="Texture2D" uid="uid://ce887xia3juke" path="res://assets/NearTrees_placeholder.png" id="4_feo2y"]
 [ext_resource type="PackedScene" uid="uid://dqh5w4oitufu" path="res://scenes/investigation/InvestigationPoint.tscn" id="5_feo2y"]
-[ext_resource type="Script" uid="uid://cc20v1tw38qru" path="res://scripts/interaction/investigation_data.gd" id="7_31hli"]
+[ext_resource type="Script" uid="uid://cc20v1tw38qru" path="res://scripts/investigation/investigation_data.gd" id="7_31hli"]
 [ext_resource type="PackedScene" uid="uid://dhrnigafkw2eg" path="res://scenes/scent/ScentVisualManager.tscn" id="7_871m1"]
 [ext_resource type="PackedScene" uid="uid://deqh74ti4b215" path="res://scenes/scent/ScentTrail.tscn" id="8_icapt"]
 [ext_resource type="PackedScene" uid="uid://c5o6g15knwmeh" path="res://scenes/scent/ScentTrailPoint.tscn" id="9_6ghox"]
