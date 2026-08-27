@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cwqmvenysqwdk" path="res://scripts/dialogue/conversation.gd" id="2_n41cu"]
 [ext_resource type="Script" uid="uid://c8vhltp32kaib" path="res://scripts/dialogue/ambient_conversation_driver.gd" id="3_n41cu"]
 [ext_resource type="Script" uid="uid://k0wox7wnbwl7" path="res://scripts/dialogue/focused_conversation_driver.gd" id="4_8yk3m"]
+[ext_resource type="Script" uid="uid://bvj63esjewl64" path="res://scripts/dialogue/ambient_dialogue_view.gd" id="5_fpdne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -21,6 +22,15 @@ script = ExtResource("3_n41cu")
 
 [node name="FocusedConversationDriver" type="Node" parent="." unique_id=1264249083]
 script = ExtResource("4_8yk3m")
+
+[node name="AmbientDialogueView" type="Node" parent="." unique_id=19047672]
+script = ExtResource("5_fpdne")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="AmbientDialogueView" unique_id=863213846]
+visible = false
+offset_right = 240.0
+offset_bottom = 80.0
+fit_content = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

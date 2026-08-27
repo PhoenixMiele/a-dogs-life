@@ -7,6 +7,7 @@ signal conversation_completed(conversation_index: int)
 @export var participant_node: Node
 @onready var ambient_driver: Node = $AmbientConversationDriver
 @onready var focused_driver: Node = $FocusedConversationDriver
+@onready var ambient_view: Node = $AmbientDialogueView
 
 var current_conversation_index: int = 0
 var dog: Node = null
@@ -73,6 +74,8 @@ func _ready() -> void:
 	conversation.completed.connect(_on_conversation_completed)
 	ambient_driver.setup(conversation)
 	focused_driver.setup(conversation)
+	
+	ambient_view.setup(conversation)
 	
 	if ActState.has_state(conversation_id):
 		var state: Dictionary = ActState.get_state(conversation_id)
