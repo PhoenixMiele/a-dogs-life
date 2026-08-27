@@ -8,16 +8,19 @@ var participants: Dictionary = {}
 var current_line_index: int = 0
 var active: bool = false
 var dog: Node = null
+var participant_display_names: Dictionary[StringName, String] = {}
 
 func start(
 	conversation_data: ConversationData,
-	runtime_participants: Dictionary
+	runtime_participants: Dictionary,
+	display_names: Dictionary[StringName, String]
 ) -> void:
 	if active:
 		return
 
 	data = conversation_data
 	participants = runtime_participants
+	participant_display_names = display_names
 	dog = participants.get(&"dog")
 
 	if (
@@ -79,3 +82,11 @@ func get_current_speaker() -> Node:
 		return null
 
 	return participants[line.speaker_id]
+	
+func get_current_speaker_display_name() -> String:
+	var line := get_current_line()
+
+	if line == null:
+		return ""
+
+	return participant_display_names.get(line.speaker_id, "")

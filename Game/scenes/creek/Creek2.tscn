@@ -39,6 +39,10 @@ position = Vector2(700, 0)
 conversation_id = &"Creek2_Dialogue_001"
 conversations = Array[ExtResource("7_jsghw")]([ExtResource("8_4q5uy"), ExtResource("9_4q5uy")])
 participant_node = NodePath("../TestNPC")
+participant_display_names = Dictionary[StringName, String]({
+&"dog": "Dog",
+&"npc": "Vole"
+})
 
 [node name="TestNPC" type="Node2D" parent="." unique_id=250100285]
 position = Vector2(709, -1)

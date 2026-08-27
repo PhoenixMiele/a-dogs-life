@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c8vhltp32kaib" path="res://scripts/dialogue/ambient_conversation_driver.gd" id="3_n41cu"]
 [ext_resource type="Script" uid="uid://k0wox7wnbwl7" path="res://scripts/dialogue/focused_conversation_driver.gd" id="4_8yk3m"]
 [ext_resource type="Script" uid="uid://bvj63esjewl64" path="res://scripts/dialogue/ambient_dialogue_view.gd" id="5_fpdne"]
+[ext_resource type="Script" uid="uid://c3bysuntvcgg5" path="res://scripts/dialogue/focused_dialogue_view.gd" id="6_wgh44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -31,6 +32,51 @@ visible = false
 offset_right = 240.0
 offset_bottom = 80.0
 fit_content = true
+
+[node name="FocusedDialogueView" type="Node" parent="." unique_id=1723835908]
+script = ExtResource("6_wgh44")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="FocusedDialogueView" unique_id=1054505967]
+
+[node name="FocusedUI" type="Control" parent="FocusedDialogueView/CanvasLayer" unique_id=473625252]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueBar" type="ColorRect" parent="FocusedDialogueView/CanvasLayer/FocusedUI" unique_id=1613407033]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="SpeakerName" type="RichTextLabel" parent="FocusedDialogueView/CanvasLayer/FocusedUI/DialogueBar" unique_id=1967842559]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 1122.0
+offset_bottom = 35.0
+bbcode_enabled = true
+
+[node name="DialogueText" type="RichTextLabel" parent="FocusedDialogueView/CanvasLayer/FocusedUI/DialogueBar" unique_id=1064609941]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 40.0
+offset_right = -30.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -8,6 +8,8 @@ signal conversation_completed(conversation_index: int)
 @onready var ambient_driver: Node = $AmbientConversationDriver
 @onready var focused_driver: Node = $FocusedConversationDriver
 @onready var ambient_view: Node = $AmbientDialogueView
+@onready var focused_view: Node = $FocusedDialogueView
+@export var participant_display_names: Dictionary[StringName, String] = {}
 
 var current_conversation_index: int = 0
 var dog: Node = null
@@ -61,7 +63,8 @@ func start_next_conversation() -> void:
 		{
 			&"dog": dog,
 			&"npc": participant_node
-		}
+		},
+		participant_display_names
 	)
 
 func can_start_conversation() -> bool:
@@ -76,7 +79,8 @@ func _ready() -> void:
 	focused_driver.setup(conversation)
 	
 	ambient_view.setup(conversation)
-	
+	focused_view.setup(conversation)
+
 	if ActState.has_state(conversation_id):
 		var state: Dictionary = ActState.get_state(conversation_id)
 		current_conversation_index = state.get("current_conversation_index", 0)

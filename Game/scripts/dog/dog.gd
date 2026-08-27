@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var deceleration: float = 10.0
 @export var speed_change: float = 8.0
 @onready var interaction_prompt: RichTextLabel = $InteractionPrompt
+@onready var camera: Camera2D = $Camera2D
 
 var movement_locked: bool = false
 var nearby_interactables: Array[Node] = []
