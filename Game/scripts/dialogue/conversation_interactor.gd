@@ -1,6 +1,8 @@
 extends Area2D
 
+signal conversation_started(conversation_index: int)
 signal conversation_completed(conversation_index: int)
+
 @export var conversation_id: StringName
 @export var conversations: Array[ConversationData] = []
 @onready var conversation: Node = $Conversation
@@ -57,7 +59,9 @@ func start_next_conversation() -> void:
 		return
 
 	var conversation_data: ConversationData = conversations[current_conversation_index]
-
+	
+	conversation_started.emit(current_conversation_index)
+	
 	conversation.start(
 		conversation_data,
 		{

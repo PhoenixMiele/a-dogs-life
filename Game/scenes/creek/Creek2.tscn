@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://d1rv5conkcwxj" path="res://scenes/section/SectionTransition.tscn" id="3_yhi80"]
 [ext_resource type="PackedScene" uid="uid://c4ii7u2rnvh4v" path="res://scenes/event/EventTrigger.tscn" id="4_sy16b"]
 [ext_resource type="PackedScene" uid="uid://dndog3mr7u0oy" path="res://scenes/dialogue/ConversationInteractor.tscn" id="6_cqldm"]
+[ext_resource type="Script" uid="uid://8xhyljvgch07" path="res://scripts/npc/npc.gd" id="6_fykx1"]
 [ext_resource type="Script" uid="uid://coe7bfg3fydd0" path="res://scripts/dialogue/conversation_data.gd" id="7_jsghw"]
 [ext_resource type="Resource" uid="uid://kbahpfa0facq" path="res://dialogue/test/TestConversation_001.tres" id="8_4q5uy"]
 [ext_resource type="Resource" uid="uid://bfehpy7djbktk" path="res://dialogue/test/TestConversation_002.tres" id="9_4q5uy"]
+[ext_resource type="Script" uid="uid://70lh2fl1yckl" path="res://scripts/npc/npc_ambient_movement.gd" id="10_xbtla"]
 
 [node name="Creek2" type="Node2D" unique_id=1300093653]
 script = ExtResource("1_df82v")
@@ -34,18 +36,22 @@ offset_top = -41.0
 offset_right = 153.0
 offset_bottom = -1.0
 
-[node name="ConversationInteractorTest" parent="." unique_id=1984171020 node_paths=PackedStringArray("participant_node") instance=ExtResource("6_cqldm")]
-position = Vector2(700, 0)
+[node name="TestNPC" type="Node2D" parent="." unique_id=250100285]
+position = Vector2(700, 1)
+script = ExtResource("6_fykx1")
+
+[node name="ConversationInteractorTest" parent="TestNPC" unique_id=1984171020 node_paths=PackedStringArray("participant_node") instance=ExtResource("6_cqldm")]
+position = Vector2(-3, -2)
 conversation_id = &"Creek2_Dialogue_001"
 conversations = Array[ExtResource("7_jsghw")]([ExtResource("8_4q5uy"), ExtResource("9_4q5uy")])
-participant_node = NodePath("../TestNPC")
+participant_node = NodePath("..")
 participant_display_names = Dictionary[StringName, String]({
 &"dog": "Dog",
 &"npc": "Vole"
 })
 
-[node name="TestNPC" type="Node2D" parent="." unique_id=250100285]
-position = Vector2(709, -1)
+[node name="AmbientMovement" type="Node" parent="TestNPC" unique_id=1256015092]
+script = ExtResource("10_xbtla")
 
 [connection signal="triggered" from="EventTriggerTEST" to="." method="_on_event_trigger_test_triggered"]
-[connection signal="conversation_completed" from="ConversationInteractorTest" to="." method="_on_conversation_interactor_test_conversation_completed"]
+[connection signal="conversation_completed" from="TestNPC/ConversationInteractorTest" to="." method="_on_conversation_interactor_test_conversation_completed"]
